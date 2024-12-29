@@ -5,37 +5,203 @@ body {
 /* 👇👇👇 Paste the styles of your Fancy Robot from the "Position it right" assignment here 👇👇👇 */
 
 .robot-container {
+  display: flex;
+  position: relative;
+  top: 30px;
+  width: 1000px;
+  height: 90vh;
+  margin: auto;
 }
 
 .robot-face-shape {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  border: 10px solid darkcyan;
+  border-radius: 40px;
+  margin: auto;
+  background: linear-gradient(45deg, rgb(49, 55, 62), silver 80%);
 }
 
 .robot-eye-left {
+  --s: 20px; /* control the shape (can be percentage) */
+  width: 100px;
+  aspect-ratio: 5/3;
+  clip-path: polygon(
+    0 100%,
+    0 calc(100% - var(--s)),
+    50% 0,
+    100% calc(100% - var(--s)),
+    100% 100%,
+    50% var(--s)
+  );
+  background: darkolivegreen;
+  position: absolute;
+  top: 80px;
+  left: 80px;
 }
 
 .robot-eye-right {
+  width: 18%;
+  height: 18%;
+  border-radius: 50%;
+  border: 3px solid black;
+  background-image: url(https://picsum.photos/id/175/120/120);
+  background-position: left;
+  position: absolute;
+  top: 80px;
+  right: 80px;
 }
 
 .robot-ear-left {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  width: 40px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(14, 99, 99);
 }
 
 .robot-ear-right {
+  position: absolute;
+  right: 140px;
+  top: 200px;
+  --b: 20px; /* the boder thickness */
+  --a: 240deg; /* control the progression */
+
+  width: 100px;
+  aspect-ratio: 1;
+  padding: var(--b);
+  border-radius: 50%;
+  background: #0d4a68;
+  --_g: /var(--b) var(--b) no-repeat radial-gradient(50% 50%, #000 97%, #0000);
+  mask: top var(--_g),
+    calc(50% + 50% * sin(var(--a))) calc(50% - 50% * cos(var(--a))) var(--_g),
+    linear-gradient(#0000 0 0) content-box intersect,
+    conic-gradient(#000 var(--a), #0000 0);
 }
 
 .robot-nose {
-}
-
-.robot-nose:before {
-}
-
-.robot-nose:after {
+  width: 3em;
+  height: 5em;
+  background-color: rgba(0, 75, 75, 0.5);
+  position: absolute;
+  left: 210px;
+  top: 160px;
 }
 
 .robot-teeth {
+  position: absolute;
+  left: 100px;
+  top: 330px;
+  width: 280px;
+  height: 80px;
 }
 
 .robot-tooth {
+  background-color: antiquewhite;
+  width: 15%;
+  height: 30px;
+  position: absolute;
+}
+
+.robot-tooth:nth-of-type(1) {
+  border-radius: 35% 49% 75% 100% / 34% 38% 43% 86%;
+}
+.robot-tooth:nth-of-type(2) {
+  border-radius: 35% 49% 100% 100% / 34% 38% 100% 100%;
+  left: 16.6%;
+  opacity: 50%;
+}
+.robot-tooth:nth-of-type(3) {
+  border-radius: 35% 49% 100% 100% / 34% 38% 100% 100%;
+  left: 33.3%;
+}
+.robot-tooth:nth-of-type(4) {
+  border-radius: 35% 49% 100% 100% / 34% 38% 100% 100%;
+  left: 50%;
+}
+.robot-tooth:nth-of-type(5) {
+  border-radius: 35% 49% 100% 100% / 34% 38% 100% 100%;
+  left: 66.6%;
+}
+.robot-tooth:nth-of-type(6) {
+  border-radius: 35% 49% 100% 49% / 34% 38% 100% 72%;
+  left: 83.3%;
+}
+.robot-tooth:nth-of-type(7) {
+  border-radius: 85% 55% 28% 22% / 87% 48% 49% 48%;
+  bottom: 0;
+}
+.robot-tooth:nth-of-type(8) {
+  border-radius: 59% 66% 28% 22% / 69% 57% 49% 48%;
+  left: 16.6%;
+  bottom: 0;
+}
+.robot-tooth:nth-of-type(9) {
+  border-radius: 59% 66% 28% 22% / 69% 57% 49% 48%;
+  left: 33.3%;
+  bottom: 0;
+}
+.robot-tooth:nth-of-type(10) {
+  border-radius: 59% 66% 28% 22% / 69% 57% 49% 48%;
+  left: 50%;
+  bottom: 0;
+}
+.robot-tooth:nth-of-type(11) {
+  border-radius: 59% 66% 28% 22% / 69% 57% 49% 48%;
+  left: 66.6%;
+  bottom: 0;
+}
+.robot-tooth:nth-of-type(12) {
+  border-radius: 32% 73% 28% 22% / 53% 62% 49% 48%;
+  left: 83.3%;
+  bottom: 0;
 }
 
 .robot-hair-style {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  top: 10px;
+  left: 40%;
+}
+
+.robot-hair-one {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 0 goldenrod;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+
+.robot-hair-one:nth-last-of-type(1) {
+  left: 150px;
+}
+
+.robot-hair-two {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 0 0 darkgoldenrod;
+  position: absolute;
+  left: 50px;
+  bottom: 0;
+}
+
+.robot-hair-two:nth-last-of-type(2) {
+  left: 120px;
+}
+
+.robot-hair-three {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 7px 7px 0 0 darkorange;
+  position: absolute;
+  left: 40%;
+  bottom: 0;
 }
